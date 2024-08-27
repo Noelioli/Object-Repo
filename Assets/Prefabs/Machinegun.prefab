@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5754717, g: 0.0021715485, b: 0.0021715485, a: 1}
+  m_Color: {r: 0.7803922, g: 0.14509805, b: 0.24313727, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 8163799293790598819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 812322389741658168}
   m_Father: {fileID: 0}
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.754717, g: 0.022846345, b: 0, a: 1}
+  m_Color: {r: 0.909804, g: 0.36078432, b: 0.050980397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -187,6 +187,16 @@ MonoBehaviour:
   attackRange: 3
   attackTime: 0.2
   bulletPrefab: {fileID: 7145236626803814593, guid: 79a39ae0cfcef104baeebfe33f6aa2d9, type: 3}
+  deathEffects:
+  - {fileID: 3842807775156141530, guid: 769440ad4123bed4aa75102e610842e1, type: 3}
+  - {fileID: 3842807775156141530, guid: 626cad196f48872469fbd2e51387e15a, type: 3}
+  - {fileID: 3842807775156141530, guid: e08e8cadc7d2caa4fb081a2e526becf7, type: 3}
+  - {fileID: 3842807775156141530, guid: d6d1ce43f92fa9a41b933cec080f5dd2, type: 3}
+  bigEffects:
+  - {fileID: 3842807775156141530, guid: e2aa8cc60bc340a40b058af0886b7119, type: 3}
+  - {fileID: 3842807775156141530, guid: dce6fcdf28204c44b9ba858fe50da519, type: 3}
+  - {fileID: 3842807775156141530, guid: 60bf64ddd649db94281127a1097f2185, type: 3}
+  - {fileID: 3842807775156141530, guid: cf9a9c294adf9504ea52d6aed64c96fe, type: 3}
 --- !u!60 &5794573127898801281
 PolygonCollider2D:
   m_ObjectHideFlags: 0

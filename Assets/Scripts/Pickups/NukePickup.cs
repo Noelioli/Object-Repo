@@ -9,16 +9,15 @@ public class NukePickup : Pickup, IDamageable
         base.OnPickup();
 
         // increase nukes
-        GameManager.GetInstance().nukes++;
-        // add icons, odd +1y and +2x each level
+        GameManager.GetInstance().AddNuke();
     }
 
     public void DestroyAll()
     {
-        GameManager.GetInstance().nukes--;
+        GameManager.GetInstance().RemoveNuke();
         foreach (Enemy item in FindObjectsOfType(typeof(Enemy)))
         {
-            Destroy(item.gameObject);
+            item.Die();
             GameManager.GetInstance().scoreManager.IncrementScore();
         }
         foreach (Pickup item in FindObjectsOfType(typeof(Pickup)))

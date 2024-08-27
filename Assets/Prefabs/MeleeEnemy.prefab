@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 8163799293790598819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.754717, g: 0.022846345, b: 0, a: 1}
+  m_Color: {r: 0.909804, g: 0.36078432, b: 0.050980397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,9 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881d9c7890fe2e34abe66d2a93bdb59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 5.5
   attackRange: 0.2
   attackTime: 1
+  deathEffects:
+  - {fileID: 3842807775156141530, guid: 769440ad4123bed4aa75102e610842e1, type: 3}
+  - {fileID: 3842807775156141530, guid: 626cad196f48872469fbd2e51387e15a, type: 3}
+  - {fileID: 3842807775156141530, guid: e08e8cadc7d2caa4fb081a2e526becf7, type: 3}
+  - {fileID: 3842807775156141530, guid: d6d1ce43f92fa9a41b933cec080f5dd2, type: 3}
+  bigEffects:
+  - {fileID: 3842807775156141530, guid: e2aa8cc60bc340a40b058af0886b7119, type: 3}
+  - {fileID: 3842807775156141530, guid: dce6fcdf28204c44b9ba858fe50da519, type: 3}
+  - {fileID: 3842807775156141530, guid: 60bf64ddd649db94281127a1097f2185, type: 3}
+  - {fileID: 3842807775156141530, guid: cf9a9c294adf9504ea52d6aed64c96fe, type: 3}
 --- !u!58 &6542902469542455
 CircleCollider2D:
   m_ObjectHideFlags: 0

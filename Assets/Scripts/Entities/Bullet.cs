@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float damage;
     [SerializeField] private float speed;
+    [SerializeField] private bool isPlayer;
 
     private string targetTag;
     
@@ -31,7 +32,8 @@ public class Bullet : MonoBehaviour
         if (damageable != null)
         {
             damageable.GetDamage(damage);
-            GameManager.GetInstance().scoreManager.IncrementScore();
+            if (isPlayer)
+                GameManager.GetInstance().scoreManager.IncrementScore();
         }
         Destroy(gameObject);
     }

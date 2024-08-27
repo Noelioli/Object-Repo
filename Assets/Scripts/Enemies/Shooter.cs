@@ -9,18 +9,30 @@ public class Shooter : Enemy
     [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private GameObject beamPrefab;
 
+    [SerializeField] private GameObject[] deathEffects;
+    [SerializeField] private GameObject[] bigEffects;
+    private GameObject selectedEffect;
+
     private float timer = 1f;
     private float setSpeed = 0f;
     private bool hasFired;
     private GameObject beam; //Square, slightly opaque
+    bool startedCharge;
+    bool isBoss;
+    int bossHealth;
 
     protected override void Start()
     {
         beam = Instantiate(beamPrefab);
         beam.SetActive(false);
         base.Start();
+        isBoss = gameObject.GetComponent<Boss>() != null;
+        bossHealth = GameManager.GetInstance().BossHealth;
         this.SetEnemyType(EnemyType.Shooter);
-        health = new Health(1, 0, 1);
+        if (!isBoss)
+            health = new Health(1, 0, 1);
+        else
+            health = new Health(bossHealth, 0, bossHealth);
         setSpeed = speed;
     }
 
@@ -33,7 +45,7 @@ public class Shooter : Enemy
 
         LookTowardsPlayer(target.position);
 
-        if (Vector2.Distance(transform.position, target.position) < attackRange)
+        if (Vector2.Distance(transform.position, target.position) < attackRange || Vector2.Distance(transform.position, target.position) < attackRange+2 && startedCharge)
         {
             ActivateBeam(target.position);
             speed = 0f;
@@ -44,6 +56,7 @@ public class Shooter : Enemy
         }
         else
         {
+            startedCharge = false;
             beam.SetActive(false);
             speed = setSpeed;
         }
@@ -52,9 +65,12 @@ public class Shooter : Enemy
     IEnumerator FiringCooldown()
     {
         hasFired = true;
+        startedCharge = true;
         yield return new WaitForSeconds(timer);
-        Attack(attackTime);
+        if (startedCharge)
+            Attack(attackTime);
         hasFired = false;
+        startedCharge = false;
     }
 
     public void ActivateBeam(Vector2 player)
@@ -104,6 +120,13 @@ public class Shooter : Enemy
     public override void Die()
     {
         Destroy(beam);
+        if (isBoss)
+        {
+            selectedEffect = bigEffects[Random.Range(0, deathEffects.Length)];
+            Instantiate(selectedEffect, transform.position, Quaternion.identity);
+        }
+        selectedEffect = deathEffects[Random.Range(0, deathEffects.Length)];
+        Instantiate(selectedEffect, transform.position, Quaternion.identity);
         base.Die();
     }
 }

@@ -7,7 +7,7 @@ public class PickupSpawner : MonoBehaviour
     [SerializeField] private PickupSpawn[] pickups;
 
     [Range(0, 1)]
-    [SerializeField] private float pickupProbability;
+    [SerializeField] private float pickupProbability; // Set by the gamemanager
 
     List<Pickup> pickupPool = new List<Pickup>();
     Pickup chosenPickup;
@@ -35,6 +35,11 @@ public class PickupSpawner : MonoBehaviour
             chosenPickup = pickupPool[Random.Range(0, pickupPool.Count)];
             Instantiate(chosenPickup, position, Quaternion.identity);
         }
+    }
+
+    public void SetProbability(float percentage)
+    {
+        pickupProbability = percentage;
     }
 }
 
