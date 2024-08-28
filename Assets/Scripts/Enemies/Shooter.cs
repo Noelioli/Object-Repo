@@ -45,7 +45,7 @@ public class Shooter : Enemy
 
         LookTowardsPlayer(target.position);
 
-        if (Vector2.Distance(transform.position, target.position) < attackRange || Vector2.Distance(transform.position, target.position) < attackRange+2 && startedCharge)
+        if (Vector2.Distance(transform.position, target.position) < attackRange || Vector2.Distance(transform.position, target.position) < attackRange+3 && startedCharge)
         {
             ActivateBeam(target.position);
             speed = 0f;

@@ -11,6 +11,9 @@ public class Player : PlayableObject
     [SerializeField] private float bulletSpeed = 15f;
     [SerializeField] private Bullet bulletPrefab;
 
+    [SerializeField] private AudioSource playerSource;
+    [SerializeField] private AudioClip bulletSound;
+
     public Action OnDeath;
 
     private Camera mainCamera;
@@ -57,6 +60,7 @@ public class Player : PlayableObject
     public override void Shoot()
     {
         //Debug.Log("Shooting");
+        playerSource.PlayOneShot(bulletSound);
         weapon.Shoot(bulletPrefab, this, "Enemy");
     }
 
